@@ -145,13 +145,10 @@ function saveNewData() {
   ) {
     // 避免id重複，找出資料中最大值的id
     for (i = 0; i < thisJSON.length; i++) {
-      console.log(i);
       if (maxId < parseInt(thisJSON[i].rowId)) {
-        console.log(maxId, parseInt(thisJSON[i].rowId));
         maxId = parseInt(thisJSON[i].rowId);
       }
     }
-    console.log(maxId);
     var newData = {
       rowId: maxId + 1,
       dataId: maxId + 1,
@@ -161,10 +158,10 @@ function saveNewData() {
       isShowName: $('input[name="show"]:checked').attr('isShowName'),
     };
     table.row.add(newData).draw();
-    // 將資料 unshift 進原本的JSON裡面
-    thisJSON.unshift(newData);
     // 紀錄最大值id
     maxId++;
+    // 將資料 unshift 進原本的JSON裡面
+    thisJSON.unshift(newData);
     // 關掉視窗
     closePopUp();
   }
