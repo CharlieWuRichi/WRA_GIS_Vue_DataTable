@@ -1,1 +1,1 @@
-https://charliewurichi.github.io/WRA_GIS_dataTable/Home.html
+https://charliewurichi.github.io/WRA_GIS_Vue_DataTable/Home.html
