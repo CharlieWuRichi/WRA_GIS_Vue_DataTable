@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:description"
+      content="水利署地理資訊空間圖資，後台管理頁面"
+    />
+    <meta
+      property="og:image"
+      content="https://charliewurichi.github.io/WRA_GIS/assets/image/home/og.png"
+    />
+    <title>後台管理頁面</title>
+    <link rel="stylesheet" href="assets/css/Backend.css" />
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <!-- jQuery UI (& Chinese datepicker)-->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+      integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/JavaScript/datepicker-zh-TW.js"></script>
+    <!-- jQuery DataTables -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  </head>
+  <body>
+    <a href="Home.html">回首頁</a>
+    <br />
+    <br />
+    <label for="from">建立日期：</label>
+    <input type="text" id="from" name="from" />
+    <label for="to">～</label>
+    <input type="text" id="to" name="to" />
+    <hr />
+    <br />
+    <button id="addBtn" onclick="showAddPopUp()">新增</button><br />
+    <div class="table_container">
+      <table id="table_id" class="compact hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>統計圖</th>
+            <th>是否顯示</th>
+            <th data-orderable="false">動作</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="popUp" id="addData">
+      <div class="popUp_title" id="popUp_title"></div>
+      <div class="popUp_option_container">
+        <div class="popUp_option_container_up">
+          <div class="popUp_label" id="popUpChartLabel">統計圖</div>
+          <select name="popUp_chart" id="popUpChart">
+            <option value="" disabled selected hidden>請選擇項目</option>
+            <option value="RT_WraReservoir">水庫圓餅圖</option>
+            <option value="RT_WraRiver">河川圓餅圖</option>
+            <option value="RT_RainPie">雨量圓餅圖</option>
+            <option value="RT_RainColumn">雨量直方圖</option>
+          </select>
+          <div class="popUp_label" id="popUpRadioLabel">是否顯示</div>
+          <input
+            id="RadioYes"
+            type="radio"
+            name="show"
+            value="Y"
+            isShowName="是"
+          /><label for="Y">是</label>
+          <input
+            id="RadioNo"
+            type="radio"
+            name="show"
+            value="N"
+            isShowName="否"
+          /><label for="N">否</label>
+        </div>
+        <div class="popUp_option_container_down">
+          <button id="saveNewData" onclick="saveNewData()">存檔</button>
+          <button id="editData" onclick="editData()">存檔</button>
+          <button id="closePopUp" onclick="closePopUp()">取消</button>
+        </div>
+      </div>
+    </div>
+    <div id="deleteData"></div>
+    <script src="assets/JavaScript/Backend.js"></script>
+  </body>
+</html>

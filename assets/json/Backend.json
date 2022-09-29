@@ -1,0 +1,68 @@
+{
+	"data": [
+		{
+			"rowId": "8",
+			"dataId": "8",
+			"chartId": "RT_WraReservoir",
+			"chartName": "水庫圓餅圖",
+			"isShow": "Y",
+			"isShowName": "是"
+		},
+		{
+			"rowId": "7",
+			"dataId": "7",
+			"chartId": "RT_WraRiver",
+			"chartName": "河川圓餅圖",
+			"isShow": "Y",
+			"isShowName": "是"
+		},
+		{
+			"rowId": "6",
+			"dataId": "6",
+			"chartId": "RT_RainPie",
+			"chartName": "雨量圓餅圖",
+			"isShow": "Y",
+			"isShowName": "是"
+		},
+		{
+			"rowId": "5",
+			"dataId": "5",
+			"chartId": "RT_RainColumn",
+			"chartName": "雨量直方圖",
+			"isShow": "Y",
+			"isShowName": "是"
+		},
+		{
+			"rowId": "4",
+			"dataId": "4",
+			"chartId": "RT_WraReservoir",
+			"chartName": "水庫圓餅圖",
+			"isShow": "Y",
+			"isShowName": "是"
+		},
+		{
+			"rowId": "3",
+			"dataId": "3",
+			"chartId": "RT_WraRiver",
+			"chartName": "河川圓餅圖",
+			"isShow": "Y",
+			"isShowName": "是"
+		},
+		{
+			"rowId": "2",
+			"dataId": "2",
+			"chartId": "RT_RainPie",
+			"chartName": "雨量圓餅圖",
+			"isShow": "Y",
+			"isShowName": "是"
+		},
+		{
+			"rowId": "1",
+			"dataId": "1",
+			"chartId": "RT_RainColumn",
+			"chartName": "雨量直方圖",
+			"isShow": "Y",
+			"isShowName": "是"
+		}
+	]
+}

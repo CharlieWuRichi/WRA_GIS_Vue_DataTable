@@ -1,0 +1,93 @@
+* {
+  font-family: "Microsoft JhengHei";
+}
+
+body {
+  margin: 0;
+  padding: 40px;
+  width: calc(100% - 80px);
+  height: calc(100vh - 80px);
+  position: relative;
+}
+
+#addBtn {
+  margin: 0 0 20px 0;
+}
+
+table {
+  width: 100% !important;
+  border: solid black 1px;
+}
+table th {
+  text-align: center !important;
+}
+table td {
+  text-align: center !important;
+  border: white solid 2px;
+}
+table td:before, table td:after {
+  font-size: 25px !important;
+}
+table .stripe-1 {
+  background-color: #E2E4FF !important;
+}
+
+.dataTables_paginate a {
+  border-radius: 8px !important;
+  border: 1px rgba(128, 128, 128, 0.5) solid !important;
+  background-color: rgb(240, 240, 240) !important;
+}
+.dataTables_paginate .current {
+  background: #E2E4FF !important;
+}
+
+.popUp {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+.popUp .popUp_title {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: center;
+  background-color: #0078C1;
+}
+.popUp .popUp_option_container {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.popUp .popUp_option_container .popUp_option_container_up {
+  display: flex;
+  align-items: center;
+}
+.popUp .popUp_option_container .popUp_option_container_up .popUp_label {
+  background-color: #FFFFCC;
+  padding: 12px 24px;
+  margin: 0 4px;
+}
+.popUp .popUp_option_container .popUp_option_container_up .required {
+  color: red;
+}
+.popUp .popUp_option_container .popUp_option_container_up .required:after {
+  color: red;
+  content: "*";
+}
+.popUp .popUp_option_container .popUp_option_container_up select {
+  font-size: 14px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.popUp .popUp_option_container .popUp_option_container_down {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}/*# sourceMappingURL=Backend.css.map */
