@@ -179,7 +179,6 @@ function closePopUp() {
   // 顯示兩個存檔紐（避免再開的時候不見）
   $('#saveNewData').css('display', 'block');
   $('#editData').css('display', 'block');
-  console.log(thisJSON);
 }
 
 // 用鍵盤操控視窗按鈕
@@ -248,6 +247,5 @@ function deleteData(e) {
     // 刪除該筆資料
     thisIndex = thisJSON.findIndex((thisJSON) => thisJSON.rowId === thisId);
     thisJSON.splice(thisIndex, 1);
-    console.log(thisJSON);
   }
 }

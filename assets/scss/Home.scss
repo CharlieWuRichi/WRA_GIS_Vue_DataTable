@@ -1,0 +1,171 @@
+%flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+*{
+	font-family: Arial, Helvetica, sans-serif, '微軟正黑體';
+}
+
+// body高度用100vh，讓畫面總是滿版
+body{
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+// header是滿版，文字範圍是750px
+header{
+	width: 100%;
+	height: 150px;
+	@extend %flex-center;
+	align-items: flex-start;
+	background-image: url('../../assets/image/home/bg-header.png');
+
+	// 標題用flex置左、垂直置中
+	.header_text_container{
+		width: 750px;
+		height: 110px;
+		position: relative;
+		@extend %flex-center;
+		justify-content: flex-start;
+
+		// 登入與歡迎文字，用絕對定位
+		#logIn{
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-color: dimgray;
+			border-radius: 0 0 8px 8px ;
+			width: 80px;
+			height: 30px;
+			@extend %flex-center;
+			a{
+				color: white;
+				text-decoration: none;
+			}
+		}
+		#welcomeText{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+	}
+}
+
+// 寬度為750px，用flex排列左右兩列
+main{
+	width: 750px;
+	height: calc(100vh - 250px);
+	margin: auto;
+	@extend %flex-center;
+	justify-content: space-between;
+
+	// 右邊內容，用flex垂直排列，用space-around讓它們自動上下分隔
+	article{
+		width: 420px;
+		height: 90%;
+		@extend %flex-center;
+		flex-direction: column;
+		justify-content: space-around;
+
+		// 四個按鈕，用flex的space-around自動分隔；設定margin-bottom，避免畫面上下太窄時碰到下方表格
+		.img_icon_container{
+			width: 100%;
+			margin-bottom: 20px;
+			@extend %flex-center;
+			justify-content: space-between;
+			img{
+				cursor: not-allowed;
+			}
+		}
+
+		// 下方表格，用flex垂直排列
+		.main_content_container{
+			width: 100%;
+			height: 70%;
+			@extend %flex-center;
+			flex-direction: column;
+
+			// 標籤群組，用flex置左排列
+			.main_content_label{
+				width: 100%;
+				@extend %flex-center;
+				justify-content: start;
+				border-bottom: #036EB7 solid 3px;
+
+				// 標籤，當按到時會加上active標籤，改變顏色
+				.label{
+					padding: 4px 16px;
+					border-radius: 8px 8px 0 0 ;
+					color: rgb(20,20,20);
+					cursor: pointer;
+					&.active{
+						background-color: #036EB7;
+						color: white;
+					}
+				}
+			}
+
+			// 表格群組，超出範圍的部分自動顯示滾動軸
+			.main_content_text{
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				display: none;
+				&.active{
+					display: block;
+				}
+				// 捲動軸
+				&::-webkit-scrollbar {
+					width: 6px;
+					background: #e1f3f7;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					background: #AFDEE8;
+					border-radius: 3px;
+				}
+
+				&::-webkit-scrollbar-thumb:hover {
+					background: #59BBCF;
+				}
+
+				// 表格，設定左右格的比例
+				table{
+					width: 100%;
+					td{
+						border-bottom: 1px dashed #000;
+						padding: 20px 0 10px 0;
+					}
+					#tableTitle{
+						width: 25%;
+						color: #DB518F;
+					}
+					#tableDescription{
+						width: 75%;
+					}
+				}
+			}
+		}
+	}
+}
+
+// header是滿版，文字範圍是750px，文字用flex上下排版
+footer{
+	width: 100%;
+	height: 100px;
+	background-color: #AFDEE8;
+	@extend %flex-center;
+
+	.footer_text_container{
+		width: 750px;
+		@extend %flex-center;
+		flex-direction: column;
+
+		p{
+			margin: 4px;
+		}
+	}
+}
