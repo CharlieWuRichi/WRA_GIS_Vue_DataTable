@@ -1,7 +1,7 @@
 const { createApp } = Vue; // 創造vue
 var thisData; // 目前頁面中ajax取得的檔案
 
-// 用ajax接外部json檔案，取得後執行renderJSON()
+// 用ajax接外部json檔案，取得後執行renderVue()
 $.ajax({
   dataType: 'json',
   method: 'GET',

@@ -1,4 +1,5 @@
 var thisJSON; // 目前頁面中處理的檔案
+var table; // 目前畫面中的 table 物件
 var thisObject; // 目前點選的檔案（編輯、刪除按鈕用）
 var thisIndex; // 目前點選的檔案在資料中的順序
 var thisId; // 目前點選的rowId（編輯、刪除按鈕用）
@@ -48,7 +49,7 @@ $(function () {
       from.datepicker('option', 'maxDate', getDate(this));
     });
 
-  // ★★不清楚這個是要做什麼（這個是範本上就有的）
+  // ★★不清楚這個是要做什麼（這個是範本上就有的）★★
   function getDate(element) {
     var date;
     try {
@@ -74,7 +75,6 @@ $.ajax({
   },
 });
 
-var table;
 function renderJSON(thisJSON) {
   table = $('#table_id').DataTable({
     // 取得檔案
