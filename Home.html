@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:description"
+      content="提供水利署地理資訊空間圖資，下載申請等相關服務。"
+    />
+    <meta
+      property="og:image"
+      content="https://charliewurichi.github.io/WRA_GIS/assets/image/home/og.png"
+    />
+    <title>水利署共享地理資訊 雲端系統</title>
+    <link rel="stylesheet" href="assets/css/Home.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="header_text_container">
+        <img id="logoImg" src="assets/image/home/logo.png" alt="" />
+        <div id="logIn"><a href="#">登出</a></div>
+        <p id="welcomeText">歡迎：陳小姐</p>
+      </div>
+    </header>
+    <main>
+      <aside><img src="assets/image/home/symbol.png" alt="" /></aside>
+      <article>
+        <section class="img_icon_container">
+          <img src="assets/image/home/gee.png" alt="" />
+          <a href="Backend.html"
+            ><img src="assets/image/home/db.png" alt="" style="cursor: pointer"
+          /></a>
+          <img src="assets/image/home/photo.png" alt="" />
+          <img src="assets/image/home/manual.png" alt="" />
+        </section>
+        <section class="main_content_container" id="app">
+          <div class="main_content_label">
+            <div
+              class="label active"
+              id="labelNews"
+              onclick="labelActive(this)"
+            >
+              最新消息
+            </div>
+            <div class="label" id="labelDownload" onclick="labelActive(this)">
+              文件下載
+            </div>
+            <div class="label" id="labelAsk" onclick="labelActive(this)">
+              回答專區
+            </div>
+          </div>
+          <div id="labelNews" class="main_content_text active">
+            <table>
+              <!-- eachContent in thisData.news.content.slice(0, 5) -->
+              <!-- 印出「thisData.news.content」裡面的每個項目「eachContent」（自定義），並且印出前五項（.slice(0,5)） -->
+              <tbody v-for="eachContent in thisData.news.content.slice(0, 5)">
+                <tr>
+                  <td id="tableTitle">{{eachContent.title}}</td>
+                  <td id="tableDescription">{{eachContent.description}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="labelDownload" class="main_content_text">
+            <table>
+              <tbody
+                v-for="eachContent in thisData.download.content.slice(0, 5)"
+              >
+                <tr>
+                  <td id="tableTitle">{{eachContent.title}}</td>
+                  <td id="tableDescription">
+                    <a v-bind:href="eachContent.description"
+                      >{{eachContent.description}}</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="labelAsk" class="main_content_text">
+            <table>
+              <tbody v-for="eachContent in thisData.ask.content.slice(0, 5)">
+                <tr>
+                  <td id="tableTitle">{{eachContent.title}}</td>
+                  <td id="tableDescription">{{eachContent.description}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <div class="footer_text_container">
+        <p>
+          水利署版權所有　轉載必究　建議使用：IE9以上・Chrome・Firefox，以獲得最佳體驗
+        </p>
+        <p>最佳解析度：1280*768以上　規劃建置：水利署　協力開發：瑞竣科技</p>
+      </div>
+    </footer>
+    <script src="assets/JavaScript/Home.js"></script>
+  </body>
+</html>
