@@ -1,4 +1,4 @@
-var thisJSON; // 目前頁面中ajax取得的檔案
+var thisJSON; // 目前頁面中 ajax 取得的檔案
 const { createApp } = Vue; // 創造 Vue
 
 // 用 getJSON 接外部 json 檔案，取得後執行 Vue
