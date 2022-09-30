@@ -68,7 +68,7 @@ $.getJSON('assets/json/Backend.json', function (data) {
   renderJSON(thisJSON);
 });
 
-// 套用 dataTable 樣式
+// 套用 DataTable 樣式
 function renderJSON(thisJSON) {
   // 宣告變數方便後續取用
   table = $('#table_id').DataTable({
