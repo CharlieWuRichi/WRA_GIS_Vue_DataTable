@@ -49,7 +49,7 @@ $(function () {
       from.datepicker('option', 'maxDate', getDate(this));
     });
 
-  // ★★ 不清楚這個是要做什麼（這是文件上就有的）★★
+  // 取得 datepicker 內的日期
   function getDate(element) {
     var date;
     try {
@@ -144,8 +144,8 @@ function saveNewData() {
       }
     }
     var newData = {
-      rowId: maxId + 1,
-      dataId: maxId + 1,
+      rowId: (maxId + 1).toString(),
+      dataId: (maxId + 1).toString(),
       chartId: $('#popUpChart option:selected').val(),
       chartName: $('#popUpChart option:selected').text(),
       isShow: $('input[name="show"]:checked').val(),
