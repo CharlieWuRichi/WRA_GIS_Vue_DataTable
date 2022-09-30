@@ -7,6 +7,7 @@ $.getJSON('assets/json/main.json', function (data) {
   renderVue();
 });
 
+// Vue
 function renderVue() {
   createApp({
     data() {
@@ -17,7 +18,7 @@ function renderVue() {
   }).mount('#app');
 }
 
-// 切換標籤時，所有標籤與表格先隱藏（去掉active），再為被點擊的標籤加上 active
+// 切換標籤時，所有標籤與表格先隱藏（去掉 active），再為被點擊的標籤加上 active
 function labelActive(e) {
   $('.label, .main_content_text').removeClass('active');
   $(e).addClass('active');
