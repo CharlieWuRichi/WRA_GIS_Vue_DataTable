@@ -1,5 +1,5 @@
 @charset "UTF-8";
-footer .footer_text_container, footer, main article .main_content_container .main_content_label, main article .main_content_container, main article .img_icon_container, main article, main, header .header_text_container #logIn, header .header_text_container, header {
+footer .footer_text_container, footer, main article .main_content_container .main_content_label, main article .main_content_container, main article .img_icon_container, main article, main, header .header_text_container a, header .header_text_container, header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@ header .header_text_container {
   position: relative;
   justify-content: flex-start;
 }
-header .header_text_container #logIn {
+header .header_text_container a {
   position: absolute;
   top: 0;
   right: 0;
@@ -35,8 +35,6 @@ header .header_text_container #logIn {
   border-radius: 0 0 8px 8px;
   width: 80px;
   height: 30px;
-}
-header .header_text_container #logIn a {
   color: white;
   text-decoration: none;
 }
