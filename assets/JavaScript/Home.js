@@ -1,9 +1,9 @@
-var thisData; // 目前頁面中ajax取得的檔案
+var thisJSON; // 目前頁面中ajax取得的檔案
 const { createApp } = Vue; // 創造 Vue
 
 // 用 getJSON 接外部 json 檔案，取得後執行 Vue
 $.getJSON('assets/json/main.json', function (data) {
-  thisData = data;
+  thisJSON = data;
   renderVue();
 });
 
@@ -11,7 +11,7 @@ function renderVue() {
   createApp({
     data() {
       return {
-        thisData: thisData,
+        thisJSON: thisJSON,
       };
     },
   }).mount('#app');
