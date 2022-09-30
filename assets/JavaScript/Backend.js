@@ -74,7 +74,7 @@ function renderJSON(thisJSON) {
   table = $('#table_id').DataTable({
     // 取得檔案
     data: thisJSON,
-    // 資料欄位區塊,
+    // 資料欄位區塊
     columns: [
       { data: 'rowId' },
       { data: 'chartName' },
@@ -94,7 +94,6 @@ function renderJSON(thisJSON) {
         },
       },
     ],
-
     // 設定每列的 class（用來設定橫條紋）
     stripeClasses: ['stripe-1', 'stripe-2'],
     // 改變顯示資料量：關閉
