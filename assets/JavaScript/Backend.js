@@ -61,7 +61,7 @@ $(function () {
   }
 });
 
-// 用 getJSON 接外部 json 檔案，取得後套用 dataTable 樣式
+// 用 getJSON 接外部 json 檔案，取得後套用 DataTable 樣式
 $.getJSON('assets/json/Backend.json', function (data) {
   // 把資料變成全域變數
   thisJSON = data.data;
