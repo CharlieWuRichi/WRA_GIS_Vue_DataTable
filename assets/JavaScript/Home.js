@@ -1,15 +1,10 @@
-const { createApp } = Vue; // 創造vue
 var thisData; // 目前頁面中ajax取得的檔案
+const { createApp } = Vue; // 創造 Vue
 
-// 用ajax接外部json檔案，取得後執行renderVue()
-$.ajax({
-  dataType: 'json',
-  method: 'GET',
-  url: 'assets/json/main.json',
-  success: function (data) {
-    thisData = data;
-    renderVue();
-  },
+// 用 getJSON 接外部 json 檔案，取得後執行 Vue
+$.getJSON('assets/json/main.json', function (data) {
+  thisData = data;
+  renderVue();
 });
 
 function renderVue() {
@@ -22,7 +17,7 @@ function renderVue() {
   }).mount('#app');
 }
 
-// 切換標籤時，所有標籤與表格先隱藏（去掉active），再為被點擊的標籤加上active
+// 切換標籤時，所有標籤與表格先隱藏（去掉active），再為被點擊的標籤加上 active
 function labelActive(e) {
   $('.label, .main_content_text').removeClass('active');
   $(e).addClass('active');

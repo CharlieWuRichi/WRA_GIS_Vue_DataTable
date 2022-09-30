@@ -2,8 +2,8 @@ var thisJSON; // 目前頁面中處理的檔案
 var table; // 目前畫面中的 table 物件
 var thisObject; // 目前點選的檔案（編輯、刪除按鈕用）
 var thisIndex; // 目前點選的檔案在資料中的順序
-var thisId; // 目前點選的rowId（編輯、刪除按鈕用）
-var maxId = 0; // 紀錄目前最大的id值
+var thisId; // 目前點選的檔案的 rowId（編輯、刪除按鈕用）
+var maxId = 0; // 紀錄目前最大的 id 值
 
 $(function () {
   // 設定日期格式
@@ -11,7 +11,7 @@ $(function () {
     // 設定開始日曆
     from = $('#from')
       .datepicker({
-        // 顯示小日曆icon：顯示icon、檔案位置、不要按鈕底色、hover顯示字樣
+        // 顯示小日曆 icon：顯示 icon、檔案位置、不要按鈕底色、hover 顯示字樣
         showOn: 'button',
         buttonImage: 'assets/image/backend/calendar.gif',
         buttonImageOnly: true,
@@ -49,7 +49,7 @@ $(function () {
       from.datepicker('option', 'maxDate', getDate(this));
     });
 
-  // ★★不清楚這個是要做什麼（這個是範本上就有的）★★
+  // ★★ 不清楚這個是要做什麼（這是文件上就有的）★★
   function getDate(element) {
     var date;
     try {
@@ -61,32 +61,27 @@ $(function () {
   }
 });
 
-// 用ajax接外部json檔案，取得後執行renderJSON()
-$.ajax({
-  dataType: 'json',
-  method: 'GET',
-  url: 'assets/json/Backend.json',
-  data: '',
-  success: function (data) {
-    // 把資料變成全域變數
-    thisJSON = data.data;
-    renderJSON(thisJSON);
-    return thisJSON;
-  },
+// 用 getJSON 接外部 json 檔案，取得後套用 dataTable 樣式
+$.getJSON('assets/json/Backend.json', function (data) {
+  // 把資料變成全域變數
+  thisJSON = data.data;
+  renderJSON(thisJSON);
 });
 
+// 套用 dataTable 樣式
 function renderJSON(thisJSON) {
+  // 宣告變數方便後續取用
   table = $('#table_id').DataTable({
     // 取得檔案
     data: thisJSON,
-    // 資料欄位區塊(columns),
+    // 資料欄位區塊,
     columns: [
       { data: 'rowId' },
       { data: 'chartName' },
       { data: 'isShowName' },
       { data: null },
     ],
-    // 設定欄位id
+    // 設定欄位 id
     rowId: 'rowId',
     // 設定動作的按鈕
     columnDefs: [
@@ -100,17 +95,17 @@ function renderJSON(thisJSON) {
       },
     ],
 
-    // 每列的class（用來設定橫條紋）
+    // 設定每列的 class（用來設定橫條紋）
     stripeClasses: ['stripe-1', 'stripe-2'],
     // 改變顯示資料量：關閉
     lengthChange: false,
     // 搜尋欄：關閉
     searching: false,
-    // 每頁資料：7筆
+    // 每頁資料：7 筆
     lengthMenu: [7],
     // 按鈕列樣式：全部顯示
     pagingType: 'full_numbers',
-    // 語言區塊(language),
+    // 語言
     language: {
       url: 'assets/json/zh-HANT.json',
     },
@@ -132,7 +127,7 @@ function saveNewData() {
   } else {
     $('#popUpChartLabel').removeClass('required');
   }
-  // Radio資料驗證
+  // Radio 資料驗證
   if ($('input[name="show"]:checked').val() == undefined) {
     $('#popUpRadioLabel').addClass('required');
   } else {
@@ -143,7 +138,7 @@ function saveNewData() {
     $('#popUpChart').val() !== null &&
     $('input[name="show"]:checked').val() !== undefined
   ) {
-    // 避免id重複，找出資料中最大值的id
+    // 輸入資料；為了避免 id 重複，找出資料中 id 最大值
     for (i = 0; i < thisJSON.length; i++) {
       if (maxId < parseInt(thisJSON[i].rowId)) {
         maxId = parseInt(thisJSON[i].rowId);
@@ -158,9 +153,9 @@ function saveNewData() {
       isShowName: $('input[name="show"]:checked').attr('isShowName'),
     };
     table.row.add(newData).draw();
-    // 紀錄最大值id
+    // 紀錄最大值 id，下次新增使用
     maxId++;
-    // 將資料 unshift 進原本的JSON裡面
+    // 將資料推進原本的 JSON 裡面
     thisJSON.unshift(newData);
     // 關掉視窗
     closePopUp();
@@ -236,7 +231,7 @@ function editData() {
 
 // 點擊刪除時，出現確認視窗
 function deleteData(e) {
-  // 取得該筆資料的rowId
+  // 取得該筆資料的 rowId
   thisId = $(e).parent().parent().attr('id');
   // 如果確定刪除
   if (confirm('確定刪除該資料列') == true) {
